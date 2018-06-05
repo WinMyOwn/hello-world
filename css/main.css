@@ -493,7 +493,7 @@ pre,
 }
 pre,
 code {
-  font-family: consolas, Menlo, "PingFang SC", "Microsoft YaHei", monospace;
+  font-family: 'SlenderGold', consolas, Menlo, "PingFang SC", "Microsoft YaHei", monospace;
 }
 code {
   padding: 2px 4px;
@@ -1219,7 +1219,7 @@ pre .javascript .function {
   opacity: 0;
 }
 .post-body {
-  font-family: 'Arial', 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: 'SlenderGold', 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
 }
 @media (max-width: 767px) {
   .post-body {
@@ -1497,7 +1497,7 @@ pre .javascript .function {
 .posts-expand .post-meta {
   margin: 3px 0 60px 0;
   color: #999;
-  font-family: 'Arial', 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: 'SlenderGold', 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 12px;
   text-align: center;
 }
@@ -1822,7 +1822,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff7f36;
+  background: #ff49ff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2668,6 +2668,36 @@ embed {
 .links-of-blogroll-inline .links-of-blogroll-item {
   display: inline-block;
 }
+.content-wrap {
+  background: #f5f5d5;
+}
+.header-inner {
+  background: #f5f5d5;
+}
+.sidebar {
+  background: #f5f5d5;
+  font-size: 16px;
+}
+.post-toc ol a {
+  color: #000;
+}
 body {
-  background: url("/images/back.jpeg");
+  background: #f5f5d5;
+}
+* {
+  cursor: url("../../images/arrow.icon"), auto !important;
+}
+:active {
+  cursor: url("http://om8u46rmb.bkt.clouddn.com/sword1.ico"), auto !important;
+}
+@font-face {
+  font-family: SlenderGold;
+  src: url("/fonts/华康瘦金体W3.TTF");
+}
+.post-body p {
+  font-family: SlenderGold, Georgia, serif;
+  letter-spacing: -0.01em;
+  word-spacing: 0.2em;
+  font-size: 1.2em;
+  line-height: 180%;
 }
