@@ -138,7 +138,7 @@
 <meta property="og:site_name" content="Zack&#39;s blog">
 <meta property="og:description" content="动感音乐">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-05T13:46:32.000Z">
+<meta property="og:updated_time" content="2018-06-06T07:22:57.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="3D音乐">
 <meta name="twitter:description" content="动感音乐">
@@ -439,7 +439,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  
+                  4 字
                 </span>
               
 
@@ -455,7 +455,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  
+                  1 分钟
                 </span>
               
             </div>
@@ -477,58 +477,88 @@
 
       
         <p>动感音乐<br><a id="more"></a></p>
-<p><input type="text" id="url"></p>
-<p><input type="button" value="使用" onclick="return loadUrl()"></p>
+<p><input type="text" placeholder="https://xxx/xx.mp3(必须为https)" id="url" style="width:250px;"><input type="button" value="使用" onclick="return loadUrl()"></p>
+<p><input type="file" multiple="multiple" id="file" value="上传MP3" onchange="fileChange()"></p>
+<input type="button" id="flag" value="暂停" onclick="return suspend()">
+
 <p><div id="container" style="width:900px;height: 600px"></div></p>
 <script type="text/javascript" src="/js/src/echarts.min.js"></script>
 <script type="text/javascript" src="/js/src/echarts-gl.min.js"></script>
 <script type="text/javascript">
+    //上传文件
+    function fileChange() {
+        var fileInput=document.getElementById("file");
+        var mp3Ext=fileInput.value.substr(fileInput.value.lastIndexOf(".")).toLowerCase();
+        if(mp3Ext!='.mp3'){
+            alert("请上传MP3！");
+            return false;
+        }
+        let mp3File=document.getElementById("file").files[0];
+
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            destroyContext();
+            myChart.clear();
+            myChart= echarts.init(dom);
+            iniOption();
+            myChart.setOption(option,true);
+            audioContext.decodeAudioData(this.result, initVisualizer);
+        };
+
+        reader.readAsArrayBuffer(mp3File);
+    }
+
+    //加载MP3url
+    function loadUrl() {
+        let urlInput=document.getElementById("url");
+        let mp3Url=urlInput.value;
+        let mp3Ext=urlInput.value.substr(urlInput.value.lastIndexOf(".")).toLowerCase();
+        if(mp3Ext!='.mp3'){
+            alert("请使用带mp3的网址!");
+            return false;
+        }
+        //先销毁
+        destroyContext()
+        init();
+    }
+
+    //暂停，恢复
+    function suspend() {
+
+        var button=document.getElementById("flag");
+        if('暂停'==button.value){
+            audioContext.suspend();
+            inited=false;
+            button.value="恢复";
+        }else{
+            audioContext.resume();
+            inited=true;
+            button.value="暂停";
+        }
+    }
+
+    //销毁上下文
+    function destroyContext() {
+        audioContext.close();
+        clearTimeout(setTimeRef);
+        audioContext = new AudioContext();
+    }
 
     var dom = document.getElementById("container");
     var myChart = echarts.init(dom);
-    var app = {};
-    option = null;
+
+    var option = null;
     var UPDATE_DURATION = 100;
 
     window.AudioContext = window.AudioContext || window.webkitAudioContext;
 
     var audioContext = new AudioContext();
-    var mp3=GetQueryString("mp3Url");
+    var mp3='/mp3/kc.mp3';
 
-    if(!(mp3)){
-        mp3='/mp3/万水.mp3'
-    }
-    var oReq = new XMLHttpRequest();
-    oReq.open('GET',mp3 , true);
-    oReq.responseType = 'arraybuffer';
+    var setTimeRef;
 
-    oReq.onload = function(e) {
 
-        myChart.clear();
-        myChart= echarts.init(dom);
-        iniOption();
-        myChart.setOption(option,true);
-        audioContext.decodeAudioData(oReq.response, initVisualizer);
-    };
-    oReq.send();
-    function loadUrl() {
-        audioContext.close();
-        let mp3Url=document.getElementById("url").value;
-        if(mp3Url){
-            myChart.clear();
-
-            var url="http://"+window.location.host+window.location.pathname+"?mp3Url="+mp3Url;
-            window.location.href=url;
-            window.event.returnValue=false;
-        }
-    }
-
-    function GetQueryString(name) {
-        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)","i");
-        var r = window.location.search.substr(1).match(reg);
-        if (r!=null) return unescape(r[2]); return null;
-    }
-
+    var inited;
     function initVisualizer(audioBuffer) {
 
         inited = true;
@@ -544,7 +574,7 @@
             source.start(0);
         }
 
-        let analyzer = audioContext.createAnalyser();
+        var analyzer = audioContext.createAnalyser();
         let gainNode = audioContext.createGain();
         analyzer.fftSize = 4096;
 
@@ -559,47 +589,50 @@
 
         let beta = 0;
         function update() {
-            analyzer.getByteFrequencyData(dataArray);
+            if(inited){
+                analyzer.getByteFrequencyData(dataArray);
 
-            let item = [];
-            let size = 50;
-            let dataProvider = [];
+                let item = [];
+                let size = 50;
+                let dataProvider = [];
 
-            for (let i = 0; i < size * size; i++) {
-                let x = i % size;
-                let y = Math.floor(i / size);
-                let dx = x - size / 2;
-                let dy = y - size / 2;
+                for (let i = 0; i < size * size; i++) {
+                    let x = i % size;
+                    let y = Math.floor(i / size);
+                    let dx = x - size / 2;
+                    let dy = y - size / 2;
 
-                let angle = Math.atan2(dy, dx);
-                if (angle < 0) {
-                    angle = Math.PI * 2 + angle;
-                }
-                let dist = Math.sqrt(dx * dx + dy * dy);
-                let idx = Math.min(
-                    frequencyBinCount - 1, Math.round(angle / Math.PI / 2 * 60 + dist * 60) + 100
-                );
-
-                let val = Math.pow(dataArray[idx] / 100, 3);
-                dataProvider.push([x, y, Math.max(val, 0.1)]);
-            }
-            myChart.setOption({
-                grid3D: {
-                    viewControl: {
-                        beta: beta,
-                        alpha: Math.sin(beta / 10 + 40) * (beta % 10 + 5) / 15 * 30 + 30,
-                        distance: Math.cos(beta / 50 + 20) * (beta % 10 + 5) / 15 * 50 + 80,
-                        animationDurationUpdate: UPDATE_DURATION,
-                        animationEasingUpdate: 'linear'
+                    let angle = Math.atan2(dy, dx);
+                    if (angle < 0) {
+                        angle = Math.PI * 2 + angle;
                     }
-                },
-                series: [{
-                    data: dataProvider
-                }]
-            });
-            beta += 2;
+                    let dist = Math.sqrt(dx * dx + dy * dy);
+                    let idx = Math.min(
+                        frequencyBinCount - 1, Math.round(angle / Math.PI / 2 * 60 + dist * 60) + 100
+                    );
 
-            setTimeout(update, UPDATE_DURATION);
+                    let val = Math.pow(dataArray[idx] / 100, 3);
+                    dataProvider.push([x, y, Math.max(val, 0.1)]);
+                }
+                myChart.setOption({
+                    grid3D: {
+                        viewControl: {
+                            beta: beta,
+                            alpha: Math.sin(beta / 10 + 40) * (beta % 10 + 5) / 15 * 30 + 30,
+                            distance: Math.cos(beta / 50 + 20) * (beta % 10 + 5) / 15 * 50 + 80,
+                            animationDurationUpdate: UPDATE_DURATION,
+                            animationEasingUpdate: 'linear'
+                        }
+                    },
+                    series: [{
+                        data: dataProvider
+                    }]
+                });
+                beta += 2;
+            }
+
+
+            setTimeRef=setTimeout(update, UPDATE_DURATION);
         };
 
         update();
@@ -646,7 +679,7 @@
                         quality: 'high'
                     },
                     ambientCubemap: {
-                        texture: 'http://echarts.baidu.com/examples/data-gl/asset/canyon.hdr',
+                        texture: '/files/canyon.hdr',
                         exposure: 0,
                         diffuseIntensity: 0.2
                     }
@@ -666,11 +699,29 @@
             }]
         };
     }
-    iniOption();
-    if (option && typeof option === "object") {
-        myChart.setOption(option, true);
+
+    //初始化
+    function init() {
+        myChart.clear();
+        myChart= echarts.init(dom);
+        iniOption();
+        if (option && typeof option === "object") {
+            myChart.setOption(option, true);
+        }
+
+        var oReq = new XMLHttpRequest();
+        oReq.open('GET',mp3 , true);
+        oReq.responseType = 'arraybuffer';
+
+        oReq.onload = function(e) {
+            audioContext.decodeAudioData(oReq.response, initVisualizer);
+        };
+        oReq.send();
     }
+    init();
+
 </script>
+
 
 
       
@@ -1043,21 +1094,6 @@
 
 
 
-
-  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-   <script type="text/javascript">
-        var gitalk = new Gitalk({
-          clientID: 'ddb07ea554e9d0de8f8f',
-          clientSecret: '96f17322f582d05410d23b4c8d2e371066092ba8',
-          repo: 'winmyown.github.io',
-          owner: 'winmyown',
-          admin: ['winmyown'],
-          id: location.pathname,
-          distractionFreeMode: 'true'
-        })
-        gitalk.render('gitalk-container')           
-       </script>
 
   
 
