@@ -1822,7 +1822,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff37d7;
+  background: #70ad33;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2688,7 +2688,7 @@ body {
   cursor: url("/images/xixi.ico"), auto !important;
 }
 :active {
-  cursor: url("http://om8u46rmb.bkt.clouddn.com/sword1.ico"), auto !important;
+  cursor: url("/images/dog.ico"), auto !important;
 }
 @font-face {
   font-family: SlenderGold;
