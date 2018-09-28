@@ -131,17 +131,17 @@
 
 
 
-<meta name="description" content="动感音乐">
+<meta name="description" content="前言登录4A平台，检查4台web服务器，4台app服务器，一台数据库服务器以及执行sql语句 一、 检查服务器信息1.查看服务器实时日志输入1coutemall_log.sh 观察20秒，若日志中无异常信息，则基本可判断服务器运行正常。若有异常，自己的代码，自己解决。不是自己的找到相应的负责人。 2.查看java 进程信息输入1top 观察相应个java进程的参数VTRT     virtual">
 <meta property="og:type" content="article">
-<meta property="og:title" content="3D音乐">
-<meta property="og:url" content="http://yoursite.com/2018/06/05/echarts/index.html">
+<meta property="og:title" content="服务器巡检方案">
+<meta property="og:url" content="http://yoursite.com/2018/09/27/serverCheck/index.html">
 <meta property="og:site_name" content="Zack&#39;s blog">
-<meta property="og:description" content="动感音乐">
+<meta property="og:description" content="前言登录4A平台，检查4台web服务器，4台app服务器，一台数据库服务器以及执行sql语句 一、 检查服务器信息1.查看服务器实时日志输入1coutemall_log.sh 观察20秒，若日志中无异常信息，则基本可判断服务器运行正常。若有异常，自己的代码，自己解决。不是自己的找到相应的负责人。 2.查看java 进程信息输入1top 观察相应个java进程的参数VTRT     virtual">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-08T06:24:17.000Z">
+<meta property="og:updated_time" content="2018-09-28T06:48:43.877Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="3D音乐">
-<meta name="twitter:description" content="动感音乐">
+<meta name="twitter:title" content="服务器巡检方案">
+<meta name="twitter:description" content="前言登录4A平台，检查4台web服务器，4台app服务器，一台数据库服务器以及执行sql语句 一、 检查服务器信息1.查看服务器实时日志输入1coutemall_log.sh 观察20秒，若日志中无异常信息，则基本可判断服务器运行正常。若有异常，自己的代码，自己解决。不是自己的找到相应的负责人。 2.查看java 进程信息输入1top 观察相应个java进程的参数VTRT     virtual">
 
 <script>
     (function(){
@@ -181,13 +181,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/06/05/echarts/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/09/27/serverCheck/"/>
 
 
 
 
 
-  <title>3D音乐 | Zack's blog</title>
+  <title>服务器巡检方案 | Zack's blog</title>
   
 
 
@@ -373,7 +373,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/05/echarts/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/27/serverCheck/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zack">
@@ -390,15 +390,11 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">3D音乐</h2>
+          <h2 class="post-title" itemprop="name headline">服务器巡检方案</h2>
         
 
         <div class="post-meta">
         
-            <i class="fa fa-thumb-tack"></i>
-            <font color=7D26CD>置顶</font>
-            <span class="post-meta-divider">|</span>
-          
           <span class="post-time">
             
               <span class="post-meta-item-icon">
@@ -407,8 +403,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-05T17:17:45+08:00">
-                2018-06-05
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-27T09:47:54+08:00">
+                2018-09-27
               </time>
             
 
@@ -426,9 +422,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/06/05/echarts/#comments" itemprop="discussionUrl">
+                <a href="/2018/09/27/serverCheck/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/06/05/echarts/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/09/27/serverCheck/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -450,7 +446,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  4 字
+                  714 字
                 </span>
               
 
@@ -466,7 +462,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1 分钟
+                  3 分钟
                 </span>
               
             </div>
@@ -487,253 +483,29 @@
       
 
       
-        <p>动感音乐<br><a id="more"></a></p>
-<p><input type="text" placeholder="https://xxx/xx.mp3(必须为https)" id="url" style="width:250px;"><input type="button" value="使用" onclick="return loadUrl()"></p>
-<p><input type="file" multiple="multiple" id="file" value="上传MP3" onchange="fileChange()"></p>
-<input type="button" id="flag" value="暂停" onclick="return suspend()">
-
-<p><div id="container" style="width:900px;height: 600px"></div></p>
-<script type="text/javascript" src="/js/src/echarts.min.js"></script>
-<script type="text/javascript" src="/js/src/echarts-gl.min.js"></script>
-<script type="text/javascript">
-    //上传文件
-    function fileChange() {
-        var fileInput=document.getElementById("file");
-        var mp3Ext=fileInput.value.substr(fileInput.value.lastIndexOf(".")).toLowerCase();
-        if(mp3Ext!='.mp3'){
-            alert("请上传MP3！");
-            return false;
-        }
-        let mp3File=document.getElementById("file").files[0];
-
-        var reader = new FileReader();
-        reader.onload = function(e) {
-            destroyContext();
-            myChart.clear();
-            myChart= echarts.init(dom);
-            iniOption();
-            myChart.setOption(option,true);
-            audioContext.decodeAudioData(this.result, initVisualizer);
-        };
-
-        reader.readAsArrayBuffer(mp3File);
-    }
-
-    //加载MP3url
-    function loadUrl() {
-        let urlInput=document.getElementById("url");
-        let mp3Url=urlInput.value;
-        let mp3Ext=urlInput.value.substr(urlInput.value.lastIndexOf(".")).toLowerCase();
-        if(mp3Ext!='.mp3'){
-            alert("请使用带mp3的网址!");
-            return false;
-        }
-        //先销毁
-        destroyContext()
-        init();
-    }
-
-    //暂停，恢复
-    function suspend() {
-
-        var button=document.getElementById("flag");
-        if('暂停'==button.value){
-            audioContext.suspend();
-            inited=false;
-            button.value="恢复";
-        }else{
-            audioContext.resume();
-            inited=true;
-            button.value="暂停";
-        }
-    }
-
-    //销毁上下文
-    function destroyContext() {
-        myChart.clear();
-        audioContext.close();
-        clearTimeout(setTimeRef);
-        audioContext = new AudioContext();
-    }
-
-    var dom = document.getElementById("container");
-    var myChart = echarts.init(dom);
-
-    var option = null;
-    var UPDATE_DURATION = 100;
-
-    window.AudioContext = window.AudioContext || window.webkitAudioContext;
-
-    var audioContext = new AudioContext();
-    var mp3='/mp3/kc.mp3';
-
-    var setTimeRef;
-
-
-    var inited;
-    function initVisualizer(audioBuffer) {
-
-        inited = true;
-
-        let source = audioContext.createBufferSource();
-        source.buffer = audioBuffer;
-
-        // Must invoked right after click event
-        if (source.noteOn) {
-            source.noteOn(0);
-        }
-        else {
-            source.start(0);
-        }
-
-        var analyzer = audioContext.createAnalyser();
-        let gainNode = audioContext.createGain();
-        analyzer.fftSize = 4096;
-
-        gainNode.gain.value = 1;
-        source.connect(gainNode);
-        gainNode.connect(analyzer);
-        analyzer.connect(audioContext.destination);
-
-        let frequencyBinCount = analyzer.frequencyBinCount;
-        let dataArray = new Uint8Array(frequencyBinCount);
-
-
-        let beta = 0;
-        function update() {
-            if(inited){
-                analyzer.getByteFrequencyData(dataArray);
-
-                let item = [];
-                let size = 50;
-                let dataProvider = [];
-
-                for (let i = 0; i < size * size; i++) {
-                    let x = i % size;
-                    let y = Math.floor(i / size);
-                    let dx = x - size / 2;
-                    let dy = y - size / 2;
-
-                    let angle = Math.atan2(dy, dx);
-                    if (angle < 0) {
-                        angle = Math.PI * 2 + angle;
-                    }
-                    let dist = Math.sqrt(dx * dx + dy * dy);
-                    let idx = Math.min(
-                        frequencyBinCount - 1, Math.round(angle / Math.PI / 2 * 60 + dist * 60) + 100
-                    );
-
-                    let val = Math.pow(dataArray[idx] / 100, 3);
-                    dataProvider.push([x, y, Math.max(val, 0.1)]);
-                }
-                myChart.setOption({
-                    grid3D: {
-                        viewControl: {
-                            beta: beta,
-                            alpha: Math.sin(beta / 10 + 40) * (beta % 10 + 5) / 15 * 30 + 30,
-                            distance: Math.cos(beta / 50 + 20) * (beta % 10 + 5) / 15 * 50 + 80,
-                            animationDurationUpdate: UPDATE_DURATION,
-                            animationEasingUpdate: 'linear'
-                        }
-                    },
-                    series: [{
-                        data: dataProvider
-                    }]
-                });
-                beta += 2;
-            }
-
-
-            setTimeRef=setTimeout(update, UPDATE_DURATION);
-        };
-
-        update();
-    }
-
-    function iniOption(){
-        option = {
-            tooltip: {},
-            visualMap: {
-                show: false,
-                min: 0.1,
-                max: 4,
-                inRange: {
-                    color: ['#010103', '#2f490c', '#b0b70f', '#fdff44', '#fff']
-                }
-            },
-            xAxis3D: {
-                type: 'value'
-            },
-            yAxis3D: {
-                type: 'value'
-            },
-            zAxis3D: {
-                type: 'value',
-                min: -6,
-                max: 6
-            },
-            grid3D: {
-                show: false,
-                environment: '#000',
-                viewControl: {
-                    distance: 100
-                },
-                postEffect: {
-                    enable: true,
-                    FXAA: {
-                        enable: true
-                    }
-                },
-                light: {
-                    main: {
-                        shadow: true,
-                        intensity: 10,
-                        quality: 'high'
-                    },
-                    ambientCubemap: {
-                        texture: 'https://echarts.baidu.com/examples/data-gl/asset/canyon.hdr',
-                        exposure: 0,
-                        diffuseIntensity: 0.2
-                    }
-                }
-            },
-            series: [{
-                type: 'bar3D',
-                silent: true,
-                shading: 'lambert',
-                data: [],
-                barSize: 1,
-                lineStyle: {
-                    width: 4
-                },
-                // animation: false,
-                animationDurationUpdate: UPDATE_DURATION
-            }]
-        };
-    }
-
-
-    //初始化
-    function init() {
-
-        var oReq = new XMLHttpRequest();
-        oReq.open('GET',mp3 , true);
-        oReq.responseType = 'arraybuffer';
-
-        oReq.onload = function(e) {
-            audioContext.decodeAudioData(oReq.response, initVisualizer);
-        };
-        oReq.send();
-    }
-    iniOption();
-   if (option && typeof option === "object") {
-       myChart.setOption(option);
-   }
-    init();
-
-</script>
-
-
+        <a id="more"></a>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>登录4A平台，检查4台web服务器，4台app服务器，一台数据库服务器以及执行sql语句</p>
+<h3 id="一、-检查服务器信息"><a href="#一、-检查服务器信息" class="headerlink" title="一、 检查服务器信息"></a>一、 检查服务器信息</h3><h4 id="1-查看服务器实时日志"><a href="#1-查看服务器实时日志" class="headerlink" title="1.查看服务器实时日志"></a>1.查看服务器实时日志</h4><p>输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">coutemall_log.sh</span><br></pre></td></tr></table></figure></p>
+<div class="note info"><p>观察20秒，若日志中无异常信息，则基本可判断服务器运行正常。<br>若有异常，自己的代码，自己解决。不是自己的找到相应的负责人。</p></div>
+<h4 id="2-查看java-进程信息"><a href="#2-查看java-进程信息" class="headerlink" title="2.查看java 进程信息"></a>2.查看java 进程信息</h4><p>输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">top</span><br></pre></td></tr></table></figure></p>
+<div class="note info"><p>观察相应个java进程的参数<br>VTRT     virtual memory usage  虚拟内存<br>RES      resident memory usage 常驻内存<br>SHR      shared memory 共享内存<br>data    数据占用的内存</p>
+<p>top中若有除了java之外的进程在res 有几百M，要及时上报</p></div>
+<h3 id="二、检查操作系统信息"><a href="#二、检查操作系统信息" class="headerlink" title="二、检查操作系统信息"></a>二、检查操作系统信息</h3><h4 id="1-查看CPU、IO-信息"><a href="#1-查看CPU、IO-信息" class="headerlink" title="1.查看CPU、IO 信息"></a>1.查看CPU、IO 信息</h4><p>输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vmstat 2</span><br></pre></td></tr></table></figure></p>
+<div class="note info"><p>观察前10行，其中<br>查看CPU 下的us,sy,id 三个字段<br>us表示用户进程的执行时间百分比<br>sy表示内核进程的执行时间百分比<br>id表示空闲时间的百分比</p>
+<p>若id小于30，或sy大于30要及时上报</p></div>
+<div class="note info"><p>IO<br>bi:每秒读取的块数<br>bo:每秒写入的块数<br>这2个值越大，能看到cpu在IO等待的值也越大</p></div>
+<h4 id="2-查看内存信息"><a href="#2-查看内存信息" class="headerlink" title="2.查看内存信息"></a>2.查看内存信息</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps aux --sort -rss</span><br></pre></td></tr></table></figure>
+<div class="note info"><p>MEM%  若内存使用率之和超过50需要上报</p></div>
+<h4 id="3-查看磁盘空间"><a href="#3-查看磁盘空间" class="headerlink" title="3.查看磁盘空间"></a>3.查看磁盘空间</h4><p>输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df -h</span><br></pre></td></tr></table></figure></p>
+<div class="note info"><p>若use% 对应的值大于70，应及时上报，或进行清理。一般情况下，在tomcat的log目录下，会有大的错误日志文件超过1G。</p></div>
+<p>删除文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">du -sh  查看当前文件夹大小</span><br><span class="line">du -h --max-depth=1 查看当前目录以及一级子目录大小</span><br><span class="line">ls -lh  查看当前目录下各文件大小（不能查看目录的大小）</span><br><span class="line">rm -f   删除文件（不允许删除文件夹）</span><br></pre></td></tr></table></figure></p>
+<div class="note info"><p>若没有经验，请务必在有经验的人协助下删除。</p></div>
+<h4 id="4-查看并记录有效链接数"><a href="#4-查看并记录有效链接数" class="headerlink" title="4.查看并记录有效链接数"></a>4.查看并记录有效链接数</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -nat|grep ESTABLISHED|wc -l</span><br></pre></td></tr></table></figure>
+<h3 id="三、检查数据库信息"><a href="#三、检查数据库信息" class="headerlink" title="三、检查数据库信息"></a>三、检查数据库信息</h3><p>将查询的结果记录在巡检文档</p>
+<p>查看执行最慢的sql<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">select *</span><br><span class="line"> from (select sa.SQL_TEXT,</span><br><span class="line">        sa.SQL_FULLTEXT,</span><br><span class="line">        sa.EXECUTIONS &quot;执行次数&quot;,</span><br><span class="line">        round(sa.ELAPSED_TIME / 1000000, 2) &quot;总执行时间&quot;,</span><br><span class="line">        round(sa.ELAPSED_TIME / 1000000 / sa.EXECUTIONS, 2) &quot;平均执行时间&quot;,</span><br><span class="line">        sa.COMMAND_TYPE,</span><br><span class="line">        sa.PARSING_USER_ID &quot;用户ID&quot;,</span><br><span class="line">        u.username &quot;用户名&quot;,</span><br><span class="line">        sa.HASH_VALUE</span><br><span class="line">     from v$sqlarea sa</span><br><span class="line">     left join all_users u</span><br><span class="line">      on sa.PARSING_USER_ID = u.user_id</span><br><span class="line">     where sa.EXECUTIONS &gt; 0</span><br><span class="line">     order by (sa.ELAPSED_TIME / sa.EXECUTIONS) desc)</span><br><span class="line"> where rownum &lt;= 50;</span><br></pre></td></tr></table></figure></p>
+<p>查看次数最多的sql<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">select *</span><br><span class="line"> from (select s.SQL_TEXT,</span><br><span class="line">        s.EXECUTIONS &quot;执行次数&quot;,</span><br><span class="line">        s.PARSING_USER_ID &quot;用户名&quot;,</span><br><span class="line">        rank() over(order by EXECUTIONS desc) EXEC_RANK</span><br><span class="line">     from v$sql s</span><br><span class="line">     left join all_users u</span><br><span class="line">      on u.USER_ID = s.PARSING_USER_ID) t</span><br><span class="line"> where exec_rank &lt;= 100;</span><br></pre></td></tr></table></figure></p>
+<p>查看数据连接数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select count(*) from v$session</span><br></pre></td></tr></table></figure></p>
+<div class="note info"><p>若连接数超过300需要及时上报</p></div>
 
       
     </div>
@@ -758,8 +530,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/28/sort/" rel="next" title="算法之内部排序">
-                <i class="fa fa-chevron-left"></i> 算法之内部排序
+              <a href="/2018/06/19/forFree/" rel="next" title="forFree">
+                <i class="fa fa-chevron-left"></i> forFree
               </a>
             
           </div>
@@ -767,10 +539,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/06/19/欲望/" rel="prev" title="欲望">
-                欲望 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -832,8 +600,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -903,6 +680,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、-检查服务器信息"><span class="nav-text">一、 检查服务器信息</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-查看服务器实时日志"><span class="nav-text">1.查看服务器实时日志</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-查看java-进程信息"><span class="nav-text">2.查看java 进程信息</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、检查操作系统信息"><span class="nav-text">二、检查操作系统信息</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-查看CPU、IO-信息"><span class="nav-text">1.查看CPU、IO 信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-查看内存信息"><span class="nav-text">2.查看内存信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-查看磁盘空间"><span class="nav-text">3.查看磁盘空间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-查看并记录有效链接数"><span class="nav-text">4.查看并记录有效链接数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、检查数据库信息"><span class="nav-text">三、检查数据库信息</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1067,9 +860,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2018/06/05/echarts/';
-          this.page.identifier = '2018/06/05/echarts/';
-          this.page.title = '3D音乐';
+          this.page.url = 'http://yoursite.com/2018/09/27/serverCheck/';
+          this.page.identifier = '2018/09/27/serverCheck/';
+          this.page.title = '服务器巡检方案';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://zack.disqus.com/embed.js';
