@@ -148,6 +148,16 @@
 <meta name="twitter:description" content="显示别人的页面–">
 <meta name="twitter:image" content="https://xqimg.imedao.com/15b7e9f423a23cf3fe0a1f59.jpg!custom660.jpg">
 
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
 
 
 <script type="text/javascript" id="hexo.configurations">
@@ -521,14 +531,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/05/28/sort/" rel="next" title="算法之内部排序">
+                <i class="fa fa-chevron-left"></i> 算法之内部排序
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/28/sort/" rel="prev" title="算法之内部排序">
-                算法之内部排序 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/05/28/hello-world/" rel="prev" title="Hello World">
+                Hello World <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -620,7 +634,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
